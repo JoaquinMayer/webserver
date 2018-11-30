@@ -3,16 +3,15 @@ const app = express()
 
 app.use(express.static(__dirname + '/public'))
 
-/* app.get('/', (req, res) => {
+app.set('view engine', 'hbs');
 
-    let salida = {
+app.get('/', (req, res) => {
+
+    res.render('home', {
         nombre: 'Joaquin',
-        apellido: 'Mayer',
-        url: req.url
-    }
-
-    res.send(salida)
-}) */
+        anio: new Date().getFullYear()
+    })
+})
 
 app.get('/data', (req, res) => {
 
