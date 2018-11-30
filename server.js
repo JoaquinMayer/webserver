@@ -2,6 +2,8 @@ const express = require('express')
 const hbs = require('hbs');
 require('./hbs/helpers/helpers');
 
+const port = process.env.PORT || 3000;
+
 const app = express()
 
 app.use(express.static(__dirname + '/public'))
@@ -29,6 +31,6 @@ app.get('/data', (req, res) => {
     res.send("Hola Data")
 })
 
-app.listen(8080, () => {
-    console.log('Escuchando peticiones en el puerto 8080');
+app.listen(port, () => {
+    console.log(`Escuchando peticiones en el puerto ${port}`);
 })
